@@ -1,7 +1,7 @@
 @font-face {
   font-family: iranSansWeb;
   font-weight: normal;
-  src: url("../fonts/IRANSansWeb\(FaNum\).ttf");
+  src: url('../fonts/IRANSansWeb\(FaNum\).ttf');
 }
 
 *,
@@ -21,7 +21,7 @@
 body {
   width: 100vw;
   min-height: 100vh;
-  background-image: url("../img/Sprinkle.svg");
+  background-image: url('../img/Sprinkle.svg');
   background-size: cover;
 }
 
@@ -40,7 +40,7 @@ ul {
   transition: all 0.6s;
 }
 
-input[type="text"] {
+input[type='text'] {
   background-color: transparent;
 }
 
@@ -50,8 +50,50 @@ input[type="text"] {
 }
 
 .tm {
+  border-radius: 5px;
   width: 40%;
+  box-shadow: 1px 1px 25px #0a1827c9;
   background-color: rgba(255, 255, 255, 0.253);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(3px);
+}
+
+#containerElements:empty::before {
+  content: ' اِی بابا، من نتونستم کاری پیدا کنم :( ';
+  display: block;
+  text-align: center;
+  background-color: #0e2a47;
+  padding: 9px;
+  backdrop-filter: blur(3px);
+  border-radius: 5px;
+  font-size: 15px;
+  color: #e0aa35;
+}
+
+.swal-footer {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.swal-button--cancel {
+  background-color: transparent;
+  border: 0;
+  font-weight: normal;
+}
+.swal-button--cancel:focus {
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  background-color: transparent;
+}
+.swal-button--cancel:hover {
+  background-color: transparent !important;
+}
+.swal-button--catch {
+  background-image: linear-gradient(to right, #db3445, #f71735);
+}
+
+.swal-button:focus,
+.swal-button--catch:focus {
+  box-shadow: none;
 }
