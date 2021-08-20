@@ -4,6 +4,36 @@
   src: url('../fonts/IRANSansWeb\(FaNum\).ttf');
 }
 
+html::-webkit-scrollbar {
+  background-color: #0e2a47;
+  width: 8px;
+}
+
+html::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background-image: linear-gradient(to top ,transparent ,#f45992, transparent) ;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  border-radius: 50px;
+  background-image: linear-gradient(to top ,transparent ,#f45992, transparent) ;
+}
+
+html::-o-scrollbar {
+  background-color: #0e2a47;
+  width: 8px;
+}
+
+html::-o-scrollbar-thumb {
+  border-radius: 50px;
+  background-image: linear-gradient(to top ,transparent ,#f45992, transparent) ;
+}
+
+html::-o-scrollbar-thumb:hover {
+  border-radius: 50px;
+  background-image: linear-gradient(to top ,transparent ,#f45992, transparent) ;
+}
+
 *,
 *::before,
 *::after {
@@ -21,6 +51,10 @@
 body {
   width: 100vw;
   min-height: 100vh;
+  max-height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 55px 0;
   background-image: url('../img/Sprinkle.svg');
   background-size: cover;
 }
