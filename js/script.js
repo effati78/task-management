@@ -167,7 +167,8 @@ const blurMode = e => {
 
 function doc_keyUp(e) {
   var e = e || window.event
-  if (e.altKey && e.key === 'n') {
+  console.log(e);
+  if ((e.altKey && e.key === 'n') || (e.altKey && e.key === 'د')) {
     handleAddElement()
   }
 }
