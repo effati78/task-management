@@ -10,7 +10,7 @@
 چالش یادگیری: ذخیره شدن تسک ها درون LocalStorage
 
 ## تکنولوژی ها
-```HTML5``` ```CSS3``` ```JavaScript``` ```Bootstrap``` ```fontawesome``` ```Sweetalert.js``` ```Toastify.js```
+```HTML5``` ```CSS3``` ```JavaScript``` ```Bootstrap``` ```fontawesome``` ```Sweetalert.js``` ```Toastify.js``` ```Animate.css```
 
 
 </div>
