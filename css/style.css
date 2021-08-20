@@ -97,3 +97,13 @@ input[type='text'] {
 .swal-button--catch:focus {
   box-shadow: none;
 }
+
+.swal-text{
+  direction: rtl;
+  text-align: center;
+}
+
+.toastify{
+  direction: rtl;
+  text-align: right;
+}

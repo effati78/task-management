@@ -22,7 +22,7 @@ const showTasks = clear => {
   tasks.map(x => {
     if (x !== null && x !== '') {
       const element = `<li class="newItem p-1 my-2 rounded d-flex align-items-center justify-content-between">
-        <input type="text" class="content border-0 px-2 w-75" value="${x}" />
+        <input type="text" class="content border-0 px-2 w-100" value="${x}" />
         <!-- <button class="doneTask btn btn-sm btn-success d-inline-flex p-2 align-items-center justify-content-center"><i class="fas fa-check"></i></button> --></i>
         <button class="deleteElement btn btn-sm btn-danger d-inline-flex p-2 align-items-center justify-content-center"><i class="fas fa-trash-alt"></i></button>
       </li>`
