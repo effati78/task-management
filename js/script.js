@@ -1,7 +1,7 @@
 const addElement = document.getElementById('addElement'),
   containerElements = document.getElementById('containerElements'),
-  newElement_content = `<li class="element p-1 my-2 rounded d-flex align-items-center justify-content-between">
-                    <input type="text" autofocus placeholder="کارخود را اینجا بنویسید." class="w-100 content border-0 px-2 w-75" />
+  newElement_content = `<li class="animate__animated animate__bounceIn element p-1 my-2 rounded d-flex align-items-center justify-content-between">
+                    <input type="text" autofocus placeholder="کار خود را اینجا بنویسید" class="w-100 content border-0 px-2 w-75" />
                     <button class="newElement btn btn-sm btn-success px-4 font-weight-bold">ثبت</button>
                 </li>`
 
@@ -44,6 +44,20 @@ const showTasks = clear => {
 }
 
 const handleAddElement = () => {
+  let UlContent = containerElements.innerHTML
+  if (UlContent.search('element') != -1) {
+    Toastify({
+      text: 'آخه جوجه! اول همین فیلد کار رو پر کن بعد برو سراغ یکی دیگه :/',
+      duration: 5000,
+      close: false,
+      gravity: 'top',
+      position: 'right',
+      backgroundColor: 'linear-gradient(to right, #DB3445, #F71735)',
+      stopOnFocus: true
+    }).showToast()
+
+    return 0
+  }
   containerElements.innerHTML += newElement_content
   newElement = document.querySelector('.newElement')
   newElement.previousSibling.previousSibling.focus()
@@ -66,7 +80,12 @@ const handleDoneTask = e => {
 }
 
 const handleDeleteElement = e => {
-  let BtnDelete = e.target
+  var BtnDelete = null
+
+  if (e.target.tagName == 'BUTTON') BtnDelete = e.target
+  else if (e.target.tagName == 'path')
+    BtnDelete = e.target.parentElement.parentElement
+
   let item = BtnDelete.parentElement
   let content = item.childNodes[1].value
 
@@ -85,12 +104,17 @@ const handleDeleteElement = e => {
     if (value === 'delete') {
       let index = tasks.indexOf(content)
 
-      tasks.splice(index, 1)
-      localStorage.setItem('tasks', tasks)
-      showTasks(true)
+      item.classList.add('animate__animated')
+      item.classList.add('animate__bounceOut')
+
+      setTimeout(() => {
+        tasks.splice(index, 1)
+        localStorage.setItem('tasks', tasks)
+        showTasks(true)
+      }, 1000)
 
       Toastify({
-        text: `تبریک! "${content}" باموفقیت حذف شد`,
+        text: `آفرین گل کاشتی! "${content}" با موفقیت حذف شد`,
         duration: 5000,
         close: false,
         gravity: 'top',
@@ -98,6 +122,17 @@ const handleDeleteElement = e => {
         backgroundColor: 'linear-gradient(to right, #00b09b, #96c93d)',
         stopOnFocus: true
       }).showToast()
+
+      setTimeout(() => {
+        Toastify({
+          text: `ماشالله! با همین فرمون کار ها تو یکی پس از دیگری انجام بده :))`,
+          duration: 5000,
+          close: false,
+          gravity: 'top',
+          position: 'right',
+          stopOnFocus: true,
+        }).showToast()
+      }, 5000)
     }
   })
 }
@@ -118,7 +153,6 @@ const handleUpdateElement = () => {
 }
 
 const handleElementRegistration = BtnRegister => {
-  // let BtnRegister = e.target
   let item = BtnRegister.parentElement
   let className = item.classList[0]
   let content = document.querySelector(`.${className}>input[type=text]`).value
@@ -167,7 +201,6 @@ const blurMode = e => {
 
 function doc_keyUp(e) {
   var e = e || window.event
-  console.log(e);
   if ((e.altKey && e.key === 'n') || (e.altKey && e.key === 'د')) {
     handleAddElement()
   }
