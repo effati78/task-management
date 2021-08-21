@@ -1,7 +1,7 @@
 const addElement = document.getElementById('addElement'),
   containerElements = document.getElementById('containerElements'),
   newElement_content = `<li class="animate__animated animate__bounceIn element p-1 my-2 rounded d-flex align-items-center justify-content-between">
-                    <input type="text" autofocus placeholder="کار خود را اینجا بنویسید" class="w-100 content border-0 px-2 w-75" />
+                    <input type="text" placeholder="کار خودت رو اینجا وارد کن" class="w-100 content border-0 px-2 w-75" />
                     <button class="newElement btn btn-sm btn-success px-4 font-weight-bold">ثبت</button>
                 </li>`
 
@@ -60,7 +60,10 @@ const handleAddElement = () => {
   }
   containerElements.innerHTML += newElement_content
   newElement = document.querySelector('.newElement')
+
   newElement.previousSibling.previousSibling.focus()
+  newElement.parentElement.classList.add('box-control-add')
+
   newElement.addEventListener('click', event => {
     event.preventDefault()
     handleElementRegistration(newElement)
@@ -130,7 +133,7 @@ const handleDeleteElement = e => {
           close: false,
           gravity: 'top',
           position: 'right',
-          stopOnFocus: true,
+          stopOnFocus: true
         }).showToast()
       }, 5000)
     }
@@ -138,8 +141,9 @@ const handleDeleteElement = e => {
 }
 
 const handleUpdateElement = () => {
-  if (val_1 != val_2) tasks[indexTemp] = val_2
-  localStorage.setItem('tasks', tasks)
+  if (val_1 == val_2) return 0
+
+  tasks[indexTemp] = val_2
 
   Toastify({
     text: `تبریک! "${val_2}" با موفقیت به روزرسانی شد`,
@@ -150,6 +154,8 @@ const handleUpdateElement = () => {
     backgroundColor: 'linear-gradient(to right, #00b09b, #96c93d)',
     stopOnFocus: true
   }).showToast()
+
+  localStorage.setItem('tasks', tasks)
 }
 
 const handleElementRegistration = BtnRegister => {
@@ -190,6 +196,9 @@ const focusMode = e => {
   let input = e.target
   val_1 = input.value
   indexTemp = tasks.indexOf(val_1)
+
+  if (input.parentElement.className.search('newItem') != -1)
+    input.parentElement.classList.add('box-control-edit')
 }
 
 const blurMode = e => {
@@ -197,6 +206,9 @@ const blurMode = e => {
   val_2 = input.value
 
   handleUpdateElement()
+
+  if (input.parentElement.className.search('newItem') != -1)
+    input.parentElement.classList.remove('box-control-edit')
 }
 
 function doc_keyUp(e) {
