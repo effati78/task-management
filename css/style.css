@@ -100,7 +100,7 @@ input[type='text'] {
   backdrop-filter: blur(3px);
   border-radius: 5px;
   font-size: 15px;
-  color: #e0aa35;
+  color: #f0ad4e;
 }
 
 .swal-footer {
@@ -140,4 +140,33 @@ input[type='text'] {
 .toastify{
   direction: rtl;
   text-align: right;
+}
+
+.element, .newItem {
+  display: block;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.box-control-edit {
+  background-color: #fff;
+  border-color: #d9534f;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem #d9544f60;
+}
+
+.box-control-add {
+  background-color: #fff;
+  border-color: #5cb85c;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem #5cb85c50;
+}
+
+.element input::placeholder{
+  color: rgb(161, 161, 161);
+  font-size: .9rem;
 }
