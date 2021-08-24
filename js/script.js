@@ -22,7 +22,7 @@ const showTasks = clear => {
   tasks.map(x => {
     if (x !== null && x !== '') {
       const element = `<li class="newItem p-1 my-2 rounded d-flex align-items-center justify-content-between">
-        <input type="text" class="content border-0 px-2 w-100" value="${x}" />
+        <input type="text" class="content test border-0 px-2 w-100" value="${x}" />
         <!-- <button class="doneTask btn btn-sm btn-success d-inline-flex p-2 align-items-center justify-content-center"><i class="fas fa-check"></i></button> --></i>
         <button class="deleteElement btn btn-sm btn-danger d-inline-flex p-2 align-items-center justify-content-center"><i class="fas fa-trash-alt"></i></button>
       </li>`
@@ -141,7 +141,31 @@ const handleDeleteElement = e => {
 }
 
 const handleUpdateElement = () => {
-  if (val_1 == val_2) return 0
+  if (val_2 == null || val_2 == '') {
+    Toastify({
+      text: 'نکنه عاشقی! فیلد کار نمیتونه خالی باشه :/',
+      duration: 5000,
+      close: false,
+      gravity: 'top',
+      position: 'right',
+      backgroundColor: 'linear-gradient(to right, #DB3445, #F71735)',
+      stopOnFocus: true
+    }).showToast()
+
+    return 0
+  } else if (val_2.trim() == '') {
+    Toastify({
+      text: 'شیطون بلا! فیلد کار رو space وارد کردی :)',
+      duration: 5000,
+      close: false,
+      gravity: 'top',
+      position: 'right',
+      backgroundColor: 'linear-gradient(to right, #DB3445, #F71735)',
+      stopOnFocus: true
+    }).showToast()
+
+    return 0
+  } else if (val_1 == val_2) return 0
 
   tasks[indexTemp] = val_2
 
@@ -165,7 +189,7 @@ const handleElementRegistration = BtnRegister => {
 
   if (content == null || content == '')
     Toastify({
-      text: 'نکنه عاشقی! فیلد کار نمیتونه خالی باشه',
+      text: 'نکنه عاشقی! فیلد کار نمیتونه خالی باشه :/',
       duration: 5000,
       close: false,
       gravity: 'top',
@@ -173,7 +197,17 @@ const handleElementRegistration = BtnRegister => {
       backgroundColor: 'linear-gradient(to right, #DB3445, #F71735)',
       stopOnFocus: true
     }).showToast()
-  else {
+  else if (content.trim() == '') {
+    Toastify({
+      text: 'شیطون بلا! فیلد کار رو space وارد کردی :)',
+      duration: 5000,
+      close: false,
+      gravity: 'top',
+      position: 'right',
+      backgroundColor: 'linear-gradient(to right, #DB3445, #F71735)',
+      stopOnFocus: true
+    }).showToast()
+  } else {
     if (tasks == null) tasks = [`${content}`]
     else tasks.push(content)
 
