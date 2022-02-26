@@ -133,6 +133,7 @@ const handleDeleteElement = e => {
           close: false,
           gravity: 'top',
           position: 'right',
+          backgroundColor: 'linear-gradient(to right, #a0daef, #bbd7f7)',
           stopOnFocus: true
         }).showToast()
       }, 5000)
