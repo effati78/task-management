@@ -26,7 +26,7 @@ Task management program on the web with JavaScript programming language
 ## Usage
 
 ```
-https://github.com/effati78/snake-and-ladder.git
+git clone https://github.com/effati78/snake-and-ladder.git
 ```
 Or you can use [demo](https://effati78.github.io/task-management)
 
