@@ -10,7 +10,7 @@ Task management program on the web with JavaScript programming language
 - Add and remove tasks
 
 ## To Do list
-- Implementation of task management plugin for Chrome browser
+- ✅ Implementation of task management plugin for Chrome browser
 
 ## Built With
 
